@@ -1,0 +1,50 @@
+{% extends "./layout.html" %}
+
+{% block title %}Login{% endblock title %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock customCSS %}
+
+
+{% block body %}
+    <div class="form-container">
+        <div class="div col-1">
+            <div class="image-layer">
+                <img src="{{ url_for('static', filename='images/car.png') }}" class="form-image-main">
+                <img src="{{ url_for('static', filename='images/stars.png') }}" class="form-image stars">
+            </div>
+            <p class="feature-words">SUPER AUTOS GT <span>ricardious</span></p>
+        </div>
+        <div class="div col-2">
+            <div class="login-form">
+                <div class="form-title">
+                    <span>Sign In</span>
+                </div>
+                <form class="form-inputs" action="/login" method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <div class="input-box">
+                        <input type="text" class="input-field" name="username" placeholder="Username" required>
+                        <i class="bx bx-user icon"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" class="input-field" name="password" placeholder="Password" required>
+                        <i class="bx bx-lock-alt icon"></i>
+                    </div>
+                    <div class="forgot-password">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    <div class="input-box">
+                        <button class="input-submit">
+                            <span>Sign In</span>
+                            <i class="bx bx-right-arrow-alt"></i>
+                        </button>
+                    </div>
+                </form>
+                 <div class="social-login">
+                    <i class="bx bxl-github"></i>
+                 </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

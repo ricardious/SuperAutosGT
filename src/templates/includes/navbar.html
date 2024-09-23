@@ -1,0 +1,48 @@
+<!--==================== NAV ====================-->
+<nav class="nav" id="nav">
+    <div class="nav__menu">
+       <a href="#" class="nav__logo">SUPER AUTOS GT</a>
+ 
+       <ul class="nav__list">
+          <li class="nav__item">
+             <a href="{{ url_for( 'dashboard') }}" class="nav__link {{ 'nav__link--active' if request.path == url_for('dashboard') }}">
+                <i class="ri-home-5-line"></i> <span>Home</span>
+             </a>
+          </li>
+ 
+          <li class="nav__item">
+             <a href="{{ url_for( 'add_car' ) }}" class="nav__link {{ 'nav__link--active' if request.path == url_for('add_car') }}">
+                <i class="ri-apps-2-add-line"></i> <span>Add Car</span>
+             </a>
+          </li>
+ 
+          <li class="nav__item">
+             <a href="{{ url_for( 'cars' ) }}" class="nav__link {{ 'nav__link--active' if request.path == url_for('cars') }}">
+                <i class="ri-survey-line"></i> <span>Registered Car</span>
+             </a>
+          </li>
+ 
+       </ul>
+ 
+       <div>
+          <h3 class="nav__title">Account</h3>
+          
+          <ul class="nav__list">
+             <li class="nav__item">
+                <a href="#" class="nav__link">
+                   <i class="ri-account-circle-line"></i> <span>RICARDIOUS</span>
+                </a>
+             </li>
+          </ul>
+       </div>
+    </div>
+ 
+    <a href="#" class="nav__link">
+       <i class="ri-logout-box-line"></i> <span>Log Out</span>
+    </a>
+ 
+    <div class="nav__close" id="nav-close">
+       <i class="ri-close-line"></i>
+    </div>
+ </nav>
+ 

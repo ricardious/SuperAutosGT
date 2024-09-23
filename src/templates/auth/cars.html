@@ -1,0 +1,59 @@
+{% extends "./layout.html" %}
+
+{% block title %}Registered Cars{% endblock title %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+{% endblock customCSS %}
+
+{% block body %}
+<img src="{{ url_for('static', filename='images/bg.jpg') }}" alt="image" class="bg__image">
+<div class="bg__blur"></div>
+
+<header class="header" id="header">
+   <div class="header__content">
+      <a href="#" class="header__logo">SUPER AUTOS GT</a>
+
+      <div class="header__actions">
+         <i class="ri-notification-2-line"></i>
+         <i class="ri-account-circle-line"></i>
+
+         <div class="header__menu" id="header-menu">
+            <i class="ri-menu-line"></i>
+         </div>
+      </div>
+   </div>
+
+   <form action="" class="header__search">
+      <i class="ri-search-line"></i>
+      <input type="search" placeholder="Search" class="header__input">
+   </form>
+</header>
+
+{% include './includes/navbar.html' %}
+
+<main class="main">
+    <div class="cars-section">
+        <h2>Registered Cars</h2>
+        {% if cars %}
+        <div class="car-list">
+            {% for car in cars %}
+            <div class="car-card">
+                <img src="{{ car.image }}" alt="{{ car.brand }} {{ car.model }}" class="car-image">
+                <div class="car-content">
+                    <h3>{{ car.brand }} - {{ car.model }}</h3>
+                    <p><strong>Price:</strong> Q{{ car.price }}</p>
+                    <p><strong>Quantity:</strong> {{ car.quantity }}</p>
+                    <p>{{ car.description }}</p>
+                    <a href="{{ url_for('delete_car', car_type=car.car_type) }}" class="delete-btn">Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>No cars registered yet.</p>
+        {% endif %}
+    </div>
+</main>
+{% endblock body %}
